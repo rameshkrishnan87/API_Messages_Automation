@@ -2,6 +2,7 @@ D:\Workspace\API_Messages_Automation_git\src\main\java\com\api\utlis\TestContext
 D:\Workspace\API_Messages_Automation_git\src\main\java\com\api\utlis\ResponseHandler.java
 D:\Workspace\API_Messages_Automation_git\src\main\java\com\api\utlis\RestAssuredRequestFilter.java
 D:\Workspace\API_Messages_Automation_git\src\main\java\com\api\stepdefinition\getListOfMessagesStepDef.java
+D:\Workspace\API_Messages_Automation_git\src\main\java\com\api\model\CreateMessageModel.java
 D:\Workspace\API_Messages_Automation_git\src\main\java\org\example\Main.java
 D:\Workspace\API_Messages_Automation_git\src\main\java\com\api\stepdefinition\updateMessagesStedDef.java
 D:\Workspace\API_Messages_Automation_git\src\main\java\com\api\stepdefinition\createMessageStepDef.java

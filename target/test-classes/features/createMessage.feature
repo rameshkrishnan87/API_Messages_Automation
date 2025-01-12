@@ -8,7 +8,7 @@ Feature: To create a new booking in restful-booker
       | name   | email   | phone   | subject   | description   |
       | <name>| <email> | <phone> | <subject> | <description> |
     Then user should get the response code 201
-#    And user validates the response with JSON schema "createBookingSchema.json"
+    And user validates the response with JSON schema "createMessageSchema.json"
 
     Examples:
       |name   | email          | phone       | subject         | description                        |

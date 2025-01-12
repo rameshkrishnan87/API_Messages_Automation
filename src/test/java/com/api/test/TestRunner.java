@@ -20,7 +20,7 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
         //,dryRun = true
         ,monochrome = true
         ,snippets = SnippetType.CAMELCASE
-        ,tags = "@deleteMessageById"
+        ,tags = "@createMessageDataTable"
         //,publish = true
 )
 public class TestRunner {

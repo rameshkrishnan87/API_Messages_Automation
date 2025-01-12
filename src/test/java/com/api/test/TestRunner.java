@@ -20,7 +20,7 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
         //,dryRun = true
         ,monochrome = true
         ,snippets = SnippetType.CAMELCASE
-        ,tags = "@e2eTest"
+        ,tags = "@createMessageDataTable"
         //,publish = true
 )
 public class TestRunner {

@@ -38,9 +38,7 @@ public class createMessageStepDef {
         messageBody.put("phone",messageData.get("phone"));
         messageBody.put("subject", messageData.get("subject"));
         messageBody.put("description", messageData.get("description"));
-        Cookies allDetailedCookies =context.response.detailedCookies();
-        Cookie token = allDetailedCookies.get("token");
-        System.out.print("%###Token in create Message "+token);
+
         context.response = context.requestSetup().body(messageBody.toString())
                 .when().post(context.session.get("endpoint").toString());
 

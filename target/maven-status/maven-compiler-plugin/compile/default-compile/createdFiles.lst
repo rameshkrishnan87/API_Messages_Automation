@@ -1,3 +1,5 @@
+com\api\stepdefinition\deleteMessagesStepDef.class
+com\api\stepdefinition\updateMessagesStedDef.class
 org\example\Main.class
 com\api\utlis\MyTestListener.class
 com\api\utlis\ResponseHandler.class

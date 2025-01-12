@@ -3,25 +3,23 @@
     "line": 2,
     "elements": [
       {
-        "start_timestamp": "2025-01-12T12:21:09.723Z",
-        "line": 5,
-        "name": "To view number of Messages created",
+        "line": 3,
+        "name": "create an auth token",
         "description": "",
-        "id": "to-view-messages-count;to-view-number-of-messages-created",
-        "type": "scenario",
-        "keyword": "Scenario",
+        "type": "background",
+        "keyword": "Background",
         "steps": [
           {
             "result": {
-              "duration": 7999500,
+              "duration": 11001600,
               "status": "passed"
             },
-            "line": 6,
-            "name": "user has access to endpoint \"/message/count\"",
+            "line": 4,
+            "name": "user has access to endpoint \"/auth/login\"",
             "match": {
               "arguments": [
                 {
-                  "val": "\"/message/count\"",
+                  "val": "\"/auth/login\"",
                   "offset": 28
                 }
               ],
@@ -31,22 +29,32 @@
           },
           {
             "result": {
-              "duration": 1011666500,
+              "duration": 1144532900,
               "status": "passed"
             },
-            "line": 7,
-            "name": "user makes a request to view message details by id",
+            "line": 5,
+            "name": "user creates a auth token with credential \"admin\" \u0026 \"password\"",
             "match": {
-              "location": "com.api.stepdefinition.getListOfMessagesStepDef.userMakeRequestToViewMessageById()"
+              "arguments": [
+                {
+                  "val": "\"admin\"",
+                  "offset": 42
+                },
+                {
+                  "val": "\"password\"",
+                  "offset": 52
+                }
+              ],
+              "location": "com.api.stepdefinition.updateMessagesStedDef.userCreatesAAuthTokenWithCredential(java.lang.String,java.lang.String)"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 1998900,
+              "duration": 1002100,
               "status": "passed"
             },
-            "line": 8,
+            "line": 6,
             "name": "user should get the response code 200",
             "match": {
               "arguments": [
@@ -58,18 +66,74 @@
               "location": "com.api.stepdefinition.getListOfMessagesStepDef.userShouldGetTheResponseCode(java.lang.Integer)"
             },
             "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2025-01-12T13:03:27.665Z",
+        "line": 15,
+        "name": "To delete a Message by ID",
+        "description": "",
+        "id": "to-delete-the-message-by-id;to-delete-a-message-by-id;;2",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 1005900,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "user has access to endpoint \"/message/5\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"/message/5\"",
+                  "offset": 28
+                }
+              ],
+              "location": "com.api.stepdefinition.getListOfMessagesStepDef.userHasAccessToEndpoint(java.lang.String)"
+            },
+            "keyword": "Given "
           },
           {
             "result": {
-              "duration": 402147500,
+              "duration": 128658800,
               "status": "passed"
             },
-            "line": 9,
-            "name": "user should see message count",
+            "line": 11,
+            "name": "user makes a request to delete message with basic auth \"admin\" \u0026 \"password123\"",
             "match": {
-              "location": "com.api.stepdefinition.getListOfMessagesStepDef.userShouldSeeTheMessageCount()"
+              "arguments": [
+                {
+                  "val": "\"admin\"",
+                  "offset": 55
+                },
+                {
+                  "val": "\"password123\"",
+                  "offset": 65
+                }
+              ],
+              "location": "com.api.stepdefinition.deleteMessagesStepDef.userMakesARequestToDeleteBookingWithBasicAuth(java.lang.String,java.lang.String)"
             },
-            "keyword": "And "
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "user should get the response code 202",
+            "match": {
+              "arguments": [
+                {
+                  "val": "202",
+                  "offset": 34
+                }
+              ],
+              "location": "com.api.stepdefinition.getListOfMessagesStepDef.userShouldGetTheResponseCode(java.lang.Integer)"
+            },
+            "keyword": "Then "
           }
         ],
         "tags": [
@@ -77,19 +141,164 @@
             "name": "@messageAPI"
           },
           {
-            "name": "@viewMessages"
+            "name": "@deleteMessages"
           },
           {
-            "name": "@viewMessageCount"
+            "name": "@deleteMessageById"
+          }
+        ]
+      },
+      {
+        "line": 3,
+        "name": "create an auth token",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 1001200,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "user has access to endpoint \"/auth/login\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"/auth/login\"",
+                  "offset": 28
+                }
+              ],
+              "location": "com.api.stepdefinition.getListOfMessagesStepDef.userHasAccessToEndpoint(java.lang.String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 139207700,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "user creates a auth token with credential \"admin\" \u0026 \"password\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"admin\"",
+                  "offset": 42
+                },
+                {
+                  "val": "\"password\"",
+                  "offset": 52
+                }
+              ],
+              "location": "com.api.stepdefinition.updateMessagesStedDef.userCreatesAAuthTokenWithCredential(java.lang.String,java.lang.String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "user should get the response code 200",
+            "match": {
+              "arguments": [
+                {
+                  "val": "200",
+                  "offset": 34
+                }
+              ],
+              "location": "com.api.stepdefinition.getListOfMessagesStepDef.userShouldGetTheResponseCode(java.lang.Integer)"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2025-01-12T13:03:28.993Z",
+        "line": 16,
+        "name": "To delete a Message by ID",
+        "description": "",
+        "id": "to-delete-the-message-by-id;to-delete-a-message-by-id;;3",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "user has access to endpoint \"/message/6\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"/message/6\"",
+                  "offset": 28
+                }
+              ],
+              "location": "com.api.stepdefinition.getListOfMessagesStepDef.userHasAccessToEndpoint(java.lang.String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 101702600,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "user makes a request to delete message with basic auth \"admin\" \u0026 \"password123\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"admin\"",
+                  "offset": 55
+                },
+                {
+                  "val": "\"password123\"",
+                  "offset": 65
+                }
+              ],
+              "location": "com.api.stepdefinition.deleteMessagesStepDef.userMakesARequestToDeleteBookingWithBasicAuth(java.lang.String,java.lang.String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 980800,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "user should get the response code 202",
+            "match": {
+              "arguments": [
+                {
+                  "val": "202",
+                  "offset": 34
+                }
+              ],
+              "location": "com.api.stepdefinition.getListOfMessagesStepDef.userShouldGetTheResponseCode(java.lang.Integer)"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@messageAPI"
+          },
+          {
+            "name": "@deleteMessages"
+          },
+          {
+            "name": "@deleteMessageById"
           }
         ]
       }
     ],
-    "name": "To view Messages Count",
+    "name": "To Delete the Message by Id",
     "description": "",
-    "id": "to-view-messages-count",
+    "id": "to-delete-the-message-by-id",
     "keyword": "Feature",
-    "uri": "file:src/test/resources/features/getMessagesCount.feature",
+    "uri": "file:src/test/resources/features/deleteMessage.feature",
     "tags": [
       {
         "name": "@messageAPI",
@@ -100,7 +309,7 @@
         }
       },
       {
-        "name": "@viewMessages",
+        "name": "@deleteMessages",
         "type": "Tag",
         "location": {
           "line": 1,

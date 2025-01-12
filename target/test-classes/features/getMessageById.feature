@@ -1,6 +1,7 @@
 @messageAPI @viewMessages
 Feature: To view the Message by Id
 
+
   @viewMessageById
   Scenario Outline: To view a Message Detail by ID
     Given user has access to endpoint "/message/<id>"
@@ -9,5 +10,5 @@ Feature: To view the Message by Id
     And user should see message details by "<id>"
   Examples:
     |id |
-    |2|
+    |4|
     |3|

@@ -1,7 +1,18 @@
 
-@messageAPI @viewMessages @viewMessageCount
-Scenario: To view number of Messages created              # src/test/resources/features/getMessagesCount.feature:5
-  Given user has access to endpoint "/message/count"      # com.api.stepdefinition.getListOfMessagesStepDef.userHasAccessToEndpoint(java.lang.String)
-  When user makes a request to view message details by id # com.api.stepdefinition.getListOfMessagesStepDef.userMakeRequestToViewMessageById()
-  Then user should get the response code 200              # com.api.stepdefinition.getListOfMessagesStepDef.userShouldGetTheResponseCode(java.lang.Integer)
-  And user should see message count                       # com.api.stepdefinition.getListOfMessagesStepDef.userShouldSeeTheMessageCount()
+@messageAPI @deleteMessages @deleteMessageById
+Scenario Outline: To delete a Message by ID                                           # src/test/resources/features/deleteMessage.feature:15
+  Given user has access to endpoint "/auth/login"                                     # com.api.stepdefinition.getListOfMessagesStepDef.userHasAccessToEndpoint(java.lang.String)
+  When user creates a auth token with credential "admin" & "password"                 # com.api.stepdefinition.updateMessagesStedDef.userCreatesAAuthTokenWithCredential(java.lang.String,java.lang.String)
+  Then user should get the response code 200                                          # com.api.stepdefinition.getListOfMessagesStepDef.userShouldGetTheResponseCode(java.lang.Integer)
+  Given user has access to endpoint "/message/5"                                      # com.api.stepdefinition.getListOfMessagesStepDef.userHasAccessToEndpoint(java.lang.String)
+  When user makes a request to delete message with basic auth "admin" & "password123" # com.api.stepdefinition.deleteMessagesStepDef.userMakesARequestToDeleteBookingWithBasicAuth(java.lang.String,java.lang.String)
+  Then user should get the response code 202                                          # com.api.stepdefinition.getListOfMessagesStepDef.userShouldGetTheResponseCode(java.lang.Integer)
+
+@messageAPI @deleteMessages @deleteMessageById
+Scenario Outline: To delete a Message by ID                                           # src/test/resources/features/deleteMessage.feature:16
+  Given user has access to endpoint "/auth/login"                                     # com.api.stepdefinition.getListOfMessagesStepDef.userHasAccessToEndpoint(java.lang.String)
+  When user creates a auth token with credential "admin" & "password"                 # com.api.stepdefinition.updateMessagesStedDef.userCreatesAAuthTokenWithCredential(java.lang.String,java.lang.String)
+  Then user should get the response code 200                                          # com.api.stepdefinition.getListOfMessagesStepDef.userShouldGetTheResponseCode(java.lang.Integer)
+  Given user has access to endpoint "/message/6"                                      # com.api.stepdefinition.getListOfMessagesStepDef.userHasAccessToEndpoint(java.lang.String)
+  When user makes a request to delete message with basic auth "admin" & "password123" # com.api.stepdefinition.deleteMessagesStepDef.userMakesARequestToDeleteBookingWithBasicAuth(java.lang.String,java.lang.String)
+  Then user should get the response code 202                                          # com.api.stepdefinition.getListOfMessagesStepDef.userShouldGetTheResponseCode(java.lang.Integer)

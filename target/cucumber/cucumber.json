@@ -3,25 +3,25 @@
     "line": 2,
     "elements": [
       {
-        "start_timestamp": "2025-01-12T11:22:33.465Z",
-        "line": 15,
-        "name": "To create new message using cucumber Data Table",
+        "start_timestamp": "2025-01-12T12:05:38.855Z",
+        "line": 12,
+        "name": "To view all the Message Details",
         "description": "",
-        "id": "to-create-a-new-booking-in-restful-booker;to-create-new-message-using-cucumber-data-table;;2",
+        "id": "to-view-the-list-of-messages;to-view-all-the-message-details;;2",
         "type": "scenario",
         "keyword": "Scenario Outline",
         "steps": [
           {
             "result": {
-              "duration": 16876100,
+              "duration": 11998900,
               "status": "passed"
             },
             "line": 6,
-            "name": "user has access to endpoint \"/message/\"",
+            "name": "user has access to endpoint \"/message/2\"",
             "match": {
               "arguments": [
                 {
-                  "val": "\"/message/\"",
+                  "val": "\"/message/2\"",
                   "offset": 28
                 }
               ],
@@ -31,52 +31,51 @@
           },
           {
             "result": {
-              "duration": 1890051000,
+              "duration": 1080122400,
               "status": "passed"
             },
             "line": 7,
-            "name": "user creates a message",
+            "name": "user makes a request to view list message by id",
             "match": {
-              "location": "com.api.stepdefinition.createMessageStepDef.userCreatesABooking(io.cucumber.datatable.DataTable)"
+              "location": "com.api.stepdefinition.getListOfMessagesStepDef.userMakeRequestToViewMessageById()"
             },
-            "rows": [
-              {
-                "cells": [
-                  "name",
-                  "email",
-                  "phone",
-                  "subject",
-                  "description"
-                ]
-              },
-              {
-                "cells": [
-                  "John",
-                  "john@test.com",
-                  "32465806421",
-                  "Create Message 1",
-                  "Create Message 1 -Description Demo"
-                ]
-              }
-            ],
             "keyword": "When "
           },
           {
             "result": {
+              "duration": 1999200,
               "status": "passed"
             },
-            "line": 10,
-            "name": "user should get the response code 201",
+            "line": 8,
+            "name": "user should get the response code 200",
             "match": {
               "arguments": [
                 {
-                  "val": "201",
+                  "val": "200",
                   "offset": 34
                 }
               ],
               "location": "com.api.stepdefinition.getListOfMessagesStepDef.userShouldGetTheResponseCode(java.lang.Integer)"
             },
             "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 484109500,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "user should see message details by \"2\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"2\"",
+                  "offset": 35
+                }
+              ],
+              "location": "com.api.stepdefinition.getListOfMessagesStepDef.userShouldGetTheMessageDetailById(java.lang.String)"
+            },
+            "keyword": "And "
           }
         ],
         "tags": [
@@ -84,33 +83,32 @@
             "name": "@messageAPI"
           },
           {
-            "name": "@createMessage"
+            "name": "@viewMessages"
           },
           {
-            "name": "@createMessageDataTable"
+            "name": "@viewMessageById"
           }
         ]
       },
       {
-        "start_timestamp": "2025-01-12T11:22:35.428Z",
-        "line": 16,
-        "name": "To create new message using cucumber Data Table",
+        "start_timestamp": "2025-01-12T12:05:40.474Z",
+        "line": 13,
+        "name": "To view all the Message Details",
         "description": "",
-        "id": "to-create-a-new-booking-in-restful-booker;to-create-new-message-using-cucumber-data-table;;3",
+        "id": "to-view-the-list-of-messages;to-view-all-the-message-details;;3",
         "type": "scenario",
         "keyword": "Scenario Outline",
         "steps": [
           {
             "result": {
-              "duration": 565900,
               "status": "passed"
             },
             "line": 6,
-            "name": "user has access to endpoint \"/message/\"",
+            "name": "user has access to endpoint \"/message/3\"",
             "match": {
               "arguments": [
                 {
-                  "val": "\"/message/\"",
+                  "val": "\"/message/3\"",
                   "offset": 28
                 }
               ],
@@ -120,52 +118,50 @@
           },
           {
             "result": {
-              "duration": 182794400,
+              "duration": 132267400,
               "status": "passed"
             },
             "line": 7,
-            "name": "user creates a message",
+            "name": "user makes a request to view list message by id",
             "match": {
-              "location": "com.api.stepdefinition.createMessageStepDef.userCreatesABooking(io.cucumber.datatable.DataTable)"
+              "location": "com.api.stepdefinition.getListOfMessagesStepDef.userMakeRequestToViewMessageById()"
             },
-            "rows": [
-              {
-                "cells": [
-                  "name",
-                  "email",
-                  "phone",
-                  "subject",
-                  "description"
-                ]
-              },
-              {
-                "cells": [
-                  "Jack",
-                  "jack@test.com",
-                  "32465280160",
-                  "Create Message 2",
-                  "Create Message 1 -Description Demo"
-                ]
-              }
-            ],
             "keyword": "When "
           },
           {
             "result": {
               "status": "passed"
             },
-            "line": 10,
-            "name": "user should get the response code 201",
+            "line": 8,
+            "name": "user should get the response code 200",
             "match": {
               "arguments": [
                 {
-                  "val": "201",
+                  "val": "200",
                   "offset": 34
                 }
               ],
               "location": "com.api.stepdefinition.getListOfMessagesStepDef.userShouldGetTheResponseCode(java.lang.Integer)"
             },
             "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 7999000,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "user should see message details by \"3\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"3\"",
+                  "offset": 35
+                }
+              ],
+              "location": "com.api.stepdefinition.getListOfMessagesStepDef.userShouldGetTheMessageDetailById(java.lang.String)"
+            },
+            "keyword": "And "
           }
         ],
         "tags": [
@@ -173,19 +169,19 @@
             "name": "@messageAPI"
           },
           {
-            "name": "@createMessage"
+            "name": "@viewMessages"
           },
           {
-            "name": "@createMessageDataTable"
+            "name": "@viewMessageById"
           }
         ]
       }
     ],
-    "name": "To create a new booking in restful-booker",
+    "name": "To view the list of messages",
     "description": "",
-    "id": "to-create-a-new-booking-in-restful-booker",
+    "id": "to-view-the-list-of-messages",
     "keyword": "Feature",
-    "uri": "file:src/test/resources/features/createMessage.feature",
+    "uri": "file:src/test/resources/features/getMessageById.feature",
     "tags": [
       {
         "name": "@messageAPI",
@@ -196,7 +192,7 @@
         }
       },
       {
-        "name": "@createMessage",
+        "name": "@viewMessages",
         "type": "Tag",
         "location": {
           "line": 1,

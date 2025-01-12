@@ -5,6 +5,8 @@ import static org.junit.Assert.*;
 import java.util.Map;
 
 import com.api.model.CreateMessageModel;
+import io.restassured.http.Cookie;
+import io.restassured.http.Cookies;
 import io.restassured.module.jsv.JsonSchemaValidator;
 import lombok.extern.java.Log;
 import org.apache.log4j.LogManager;
@@ -36,7 +38,9 @@ public class createMessageStepDef {
         messageBody.put("phone",messageData.get("phone"));
         messageBody.put("subject", messageData.get("subject"));
         messageBody.put("description", messageData.get("description"));
-
+        Cookies allDetailedCookies =context.response.detailedCookies();
+        Cookie token = allDetailedCookies.get("token");
+        System.out.print("%###Token in create Message "+token);
         context.response = context.requestSetup().body(messageBody.toString())
                 .when().post(context.session.get("endpoint").toString());
 

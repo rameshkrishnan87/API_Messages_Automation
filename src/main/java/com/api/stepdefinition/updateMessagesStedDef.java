@@ -22,7 +22,7 @@ import io.cucumber.datatable.DataTable;
 public class updateMessagesStedDef {
     private TestContext context;
     private static final Logger LOG = LogManager.getLogger(updateMessagesStedDef.class);
-
+    public Cookie authToken;
     public updateMessagesStedDef(TestContext context) {
         this.context = context;
     }
@@ -41,5 +41,17 @@ public class updateMessagesStedDef {
         LOG.info("Auth Token: " + token);
         System.out.println(token);
         context.session.put("token", "token=" + token);
+    }
+
+    @When("user updates the details of a message")
+    public void userMakesARequestToDeleteBookingWithBasicAuth() {
+        Cookies allDetailedCookies =context.response.detailedCookies();
+        Cookie token = allDetailedCookies.get("token");
+        authToken = allDetailedCookies.get("token");
+        context.response = context.requestSetup()
+//                .auth().preemptive().basic(username, password)
+//                .pathParam("bookingID", context.session.get("bookingID"))
+                .cookie(token)
+                .when().put(context.session.get("endpoint")+"");
     }
 }

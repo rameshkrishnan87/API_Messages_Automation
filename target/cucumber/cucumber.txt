@@ -1,14 +1,24 @@
 
-@messageAPI @createMessage @createMessageDataTable
-Scenario Outline: To create new message using cucumber Data Table             # src/test/resources/features/createMessage.feature:15
+@messageAPI @deleteMessages @e2eTest
+Scenario Outline: To perform a CURD operation on message service              # src/test/resources/features/deleteMessage.feature:33
+  Given user has access to endpoint "/auth/login"                             # com.api.stepdefinition.getListOfMessagesStepDef.userHasAccessToEndpoint(java.lang.String)
+  When user creates a auth token with credential "admin" & "password"         # com.api.stepdefinition.updateMessagesStedDef.userCreatesAAuthTokenWithCredential(java.lang.String,java.lang.String)
+  Then user should get the response code 200                                  # com.api.stepdefinition.getListOfMessagesStepDef.userShouldGetTheResponseCode(java.lang.Integer)
   Given user has access to endpoint "/message/"                               # com.api.stepdefinition.getListOfMessagesStepDef.userHasAccessToEndpoint(java.lang.String)
   When user creates a message                                                 # com.api.stepdefinition.createMessageStepDef.userCreatesABooking(io.cucumber.datatable.DataTable)
   Then user should get the response code 201                                  # com.api.stepdefinition.getListOfMessagesStepDef.userShouldGetTheResponseCode(java.lang.Integer)
   And user validates the response with JSON schema "createMessageSchema.json" # com.api.stepdefinition.createMessageStepDef.userValidatesResponseWithJSONSchema(java.lang.String)
+  And user makes a request to view message detail by id                       # com.api.stepdefinition.getListOfMessagesStepDef.userMakeRequestToViewMessageDetailById()
+  And user should get the response code 200                                   # com.api.stepdefinition.getListOfMessagesStepDef.userShouldGetTheResponseCode(java.lang.Integer)
 
-@messageAPI @createMessage @createMessageDataTable
-Scenario Outline: To create new message using cucumber Data Table             # src/test/resources/features/createMessage.feature:16
+@messageAPI @deleteMessages @e2eTest
+Scenario Outline: To perform a CURD operation on message service              # src/test/resources/features/deleteMessage.feature:34
+  Given user has access to endpoint "/auth/login"                             # com.api.stepdefinition.getListOfMessagesStepDef.userHasAccessToEndpoint(java.lang.String)
+  When user creates a auth token with credential "admin" & "password"         # com.api.stepdefinition.updateMessagesStedDef.userCreatesAAuthTokenWithCredential(java.lang.String,java.lang.String)
+  Then user should get the response code 200                                  # com.api.stepdefinition.getListOfMessagesStepDef.userShouldGetTheResponseCode(java.lang.Integer)
   Given user has access to endpoint "/message/"                               # com.api.stepdefinition.getListOfMessagesStepDef.userHasAccessToEndpoint(java.lang.String)
   When user creates a message                                                 # com.api.stepdefinition.createMessageStepDef.userCreatesABooking(io.cucumber.datatable.DataTable)
   Then user should get the response code 201                                  # com.api.stepdefinition.getListOfMessagesStepDef.userShouldGetTheResponseCode(java.lang.Integer)
   And user validates the response with JSON schema "createMessageSchema.json" # com.api.stepdefinition.createMessageStepDef.userValidatesResponseWithJSONSchema(java.lang.String)
+  And user makes a request to view message detail by id                       # com.api.stepdefinition.getListOfMessagesStepDef.userMakeRequestToViewMessageDetailById()
+  And user should get the response code 200                                   # com.api.stepdefinition.getListOfMessagesStepDef.userShouldGetTheResponseCode(java.lang.Integer)

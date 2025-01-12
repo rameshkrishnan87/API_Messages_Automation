@@ -1,5 +1,7 @@
 package com.api.stepdefinition;
 
+import com.api.model.CreateMessageModel;
+import com.api.utlis.ResponseHandler;
 import io.cucumber.java.en.When;
 
 import com.api.utlis.TestContext;
@@ -16,14 +18,25 @@ public class deleteMessagesStepDef {
         this.context = context;
     }
 
-    @When("user makes a request to delete message with basic auth {string} & {string}")
-    public void userMakesARequestToDeleteBookingWithBasicAuth(String username, String password) {
+    @When("user makes a request to delete message")
+    public void userMakesARequestToDeleteMessage() {
         Cookies allDetailedCookies =context.response.detailedCookies();
         Cookie token = allDetailedCookies.get("token");
         context.response = context.requestSetup()
-//                .auth().preemptive().basic(username, password)
-//                .pathParam("bookingID", context.session.get("bookingID"))
                 .cookie(token)
                 .when().delete(context.session.get("endpoint")+"");
     }
+
+//    @When("user makes a request to delete message by id")
+//    public void userMakesARequestToDeleteMessageByID() {
+//
+//        Cookies allDetailedCookies =context.response.detailedCookies();
+//        Cookie token = allDetailedCookies.get("token");
+//        CreateMessageModel createMessageModel = ResponseHandler.deserializedResponse(context.response, CreateMessageModel.class);
+//
+//        context.response = context.requestSetup()
+//                .cookie(token)
+//                .pathParam("messageID", context.session.get("messageID"))
+//                .when().delete(context.session.get("endpoint")+"{messageID}");
+//    }
 }

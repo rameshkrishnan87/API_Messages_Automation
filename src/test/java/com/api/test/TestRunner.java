@@ -20,7 +20,7 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
         //,dryRun = true
         ,monochrome = true
         ,snippets = SnippetType.CAMELCASE
-        ,tags = "@viewMessageById"
+        ,tags = "@viewMessageCount"
         //,publish = true
 )
 public class TestRunner {

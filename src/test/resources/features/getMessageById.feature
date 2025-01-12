@@ -1,10 +1,10 @@
 @messageAPI @viewMessages
-Feature: To view the list of messages
+Feature: To view the Message by Id
 
   @viewMessageById
-  Scenario Outline: To view all the Message Details
+  Scenario Outline: To view a Message Detail by ID
     Given user has access to endpoint "/message/<id>"
-    When user makes a request to view list message by id
+    When user makes a request to view number of messages
     Then user should get the response code 200
     And user should see message details by "<id>"
   Examples:

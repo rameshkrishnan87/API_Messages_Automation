@@ -46,7 +46,7 @@ public class getListOfMessagesStepDef {
         assertEquals(Long.valueOf(statusCode), Long.valueOf(context.response.getStatusCode()));
     }
 
-    @When("user makes a request to view list message by id")
+    @When("user makes a request to view message details by id")
     public void userMakeRequestToViewMessageById() {
         context.response = context.requestSetup()
                 .when().get(context.session.get("endpoint").toString());
@@ -61,11 +61,25 @@ public class getListOfMessagesStepDef {
 
     }
 
+    @When("user makes a request to view number of messages")
+    public void userMakeRequestToViewNumberOfMessages(){
+        context.response = context.requestSetup()
+                .when().get(context.session.get("endpoint").toString());
+    }
+
     @Then("user should see message details by {string}")
     public void userShouldGetTheMessageDetailById(String id) {
         JsonPath js = new JsonPath(context.response.getBody().asString());
         String actualMessageId = js.getString("messageid");
         System.out.println(actualMessageId);
         assertEquals(actualMessageId, id);
+    }
+
+    @Then("user should see message count")
+    public void userShouldSeeTheMessageCount(){
+        JsonPath js = new JsonPath(context.response.getBody().asString());
+        String actualMessageCount= js.getString("count");
+        System.out.println(actualMessageCount);
+        assertNotNull("Message Count not found!", actualMessageCount);
     }
 }

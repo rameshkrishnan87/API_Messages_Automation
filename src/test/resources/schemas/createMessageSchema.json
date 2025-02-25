@@ -2,31 +2,1032 @@
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
-    "messageid": {
-      "type": "integer"
-    },
-    "name": {
+    "openapi": {
       "type": "string"
     },
-    "email": {
-      "type": "string"
+    "info": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "version"
+      ]
     },
-    "phone": {
-      "type": "string"
+    "servers": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "url": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "url"
+          ]
+        }
+      ]
     },
-    "subject": {
-      "type": "string"
+    "paths": {
+      "type": "object",
+      "properties": {
+        "/{id}/read": {
+          "type": "object",
+          "properties": {
+            "put": {
+              "type": "object",
+              "properties": {
+                "tags": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "string"
+                    }
+                  ]
+                },
+                "operationId": {
+                  "type": "string"
+                },
+                "parameters": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "in": {
+                          "type": "string"
+                        },
+                        "required": {
+                          "type": "boolean"
+                        },
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string"
+                            },
+                            "format": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "format"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "name",
+                        "in",
+                        "required",
+                        "schema"
+                      ]
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "in": {
+                          "type": "string"
+                        },
+                        "required": {
+                          "type": "boolean"
+                        },
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "type"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "name",
+                        "in",
+                        "required",
+                        "schema"
+                      ]
+                    }
+                  ]
+                },
+                "responses": {
+                  "type": "object",
+                  "properties": {
+                    "200": {
+                      "type": "object",
+                      "properties": {
+                        "description": {
+                          "type": "string"
+                        },
+                        "content": {
+                          "type": "object",
+                          "properties": {
+                            "*/*": {
+                              "type": "object",
+                              "properties": {
+                                "schema": {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "type"
+                                  ]
+                                }
+                              },
+                              "required": [
+                                "schema"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "*/*"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "description",
+                        "content"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "200"
+                  ]
+                }
+              },
+              "required": [
+                "tags",
+                "operationId",
+                "parameters",
+                "responses"
+              ]
+            }
+          },
+          "required": [
+            "put"
+          ]
+        },
+        "/": {
+          "type": "object",
+          "properties": {
+            "get": {
+              "type": "object",
+              "properties": {
+                "tags": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "string"
+                    }
+                  ]
+                },
+                "operationId": {
+                  "type": "string"
+                },
+                "responses": {
+                  "type": "object",
+                  "properties": {
+                    "200": {
+                      "type": "object",
+                      "properties": {
+                        "description": {
+                          "type": "string"
+                        },
+                        "content": {
+                          "type": "object",
+                          "properties": {
+                            "*/*": {
+                              "type": "object",
+                              "properties": {
+                                "schema": {
+                                  "type": "object",
+                                  "properties": {
+                                    "$ref": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "$ref"
+                                  ]
+                                }
+                              },
+                              "required": [
+                                "schema"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "*/*"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "description",
+                        "content"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "200"
+                  ]
+                }
+              },
+              "required": [
+                "tags",
+                "operationId",
+                "responses"
+              ]
+            },
+            "post": {
+              "type": "object",
+              "properties": {
+                "tags": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "string"
+                    }
+                  ]
+                },
+                "operationId": {
+                  "type": "string"
+                },
+                "requestBody": {
+                  "type": "object",
+                  "properties": {
+                    "content": {
+                      "type": "object",
+                      "properties": {
+                        "application/json": {
+                          "type": "object",
+                          "properties": {
+                            "schema": {
+                              "type": "object",
+                              "properties": {
+                                "$ref": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "$ref"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "schema"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "application/json"
+                      ]
+                    },
+                    "required": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "content",
+                    "required"
+                  ]
+                },
+                "responses": {
+                  "type": "object",
+                  "properties": {
+                    "200": {
+                      "type": "object",
+                      "properties": {
+                        "description": {
+                          "type": "string"
+                        },
+                        "content": {
+                          "type": "object",
+                          "properties": {
+                            "*/*": {
+                              "type": "object",
+                              "properties": {
+                                "schema": {
+                                  "type": "object",
+                                  "properties": {
+                                    "$ref": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "$ref"
+                                  ]
+                                }
+                              },
+                              "required": [
+                                "schema"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "*/*"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "description",
+                        "content"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "200"
+                  ]
+                }
+              },
+              "required": [
+                "tags",
+                "operationId",
+                "requestBody",
+                "responses"
+              ]
+            }
+          },
+          "required": [
+            "get",
+            "post"
+          ]
+        },
+        "/{id}": {
+          "type": "object",
+          "properties": {
+            "get": {
+              "type": "object",
+              "properties": {
+                "tags": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "string"
+                    }
+                  ]
+                },
+                "operationId": {
+                  "type": "string"
+                },
+                "parameters": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "in": {
+                          "type": "string"
+                        },
+                        "required": {
+                          "type": "boolean"
+                        },
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string"
+                            },
+                            "format": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "format"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "name",
+                        "in",
+                        "required",
+                        "schema"
+                      ]
+                    }
+                  ]
+                },
+                "responses": {
+                  "type": "object",
+                  "properties": {
+                    "200": {
+                      "type": "object",
+                      "properties": {
+                        "description": {
+                          "type": "string"
+                        },
+                        "content": {
+                          "type": "object",
+                          "properties": {
+                            "*/*": {
+                              "type": "object",
+                              "properties": {
+                                "schema": {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "type"
+                                  ]
+                                }
+                              },
+                              "required": [
+                                "schema"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "*/*"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "description",
+                        "content"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "200"
+                  ]
+                }
+              },
+              "required": [
+                "tags",
+                "operationId",
+                "parameters",
+                "responses"
+              ]
+            },
+            "delete": {
+              "type": "object",
+              "properties": {
+                "tags": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "string"
+                    }
+                  ]
+                },
+                "operationId": {
+                  "type": "string"
+                },
+                "parameters": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "in": {
+                          "type": "string"
+                        },
+                        "required": {
+                          "type": "boolean"
+                        },
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string"
+                            },
+                            "format": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "type",
+                            "format"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "name",
+                        "in",
+                        "required",
+                        "schema"
+                      ]
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "in": {
+                          "type": "string"
+                        },
+                        "required": {
+                          "type": "boolean"
+                        },
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "type"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "name",
+                        "in",
+                        "required",
+                        "schema"
+                      ]
+                    }
+                  ]
+                },
+                "responses": {
+                  "type": "object",
+                  "properties": {
+                    "200": {
+                      "type": "object",
+                      "properties": {
+                        "description": {
+                          "type": "string"
+                        },
+                        "content": {
+                          "type": "object",
+                          "properties": {
+                            "*/*": {
+                              "type": "object",
+                              "properties": {
+                                "schema": {
+                                  "type": "object",
+                                  "properties": {
+                                    "type": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "type"
+                                  ]
+                                }
+                              },
+                              "required": [
+                                "schema"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "*/*"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "description",
+                        "content"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "200"
+                  ]
+                }
+              },
+              "required": [
+                "tags",
+                "operationId",
+                "parameters",
+                "responses"
+              ]
+            }
+          },
+          "required": [
+            "get",
+            "delete"
+          ]
+        },
+        "/count": {
+          "type": "object",
+          "properties": {
+            "get": {
+              "type": "object",
+              "properties": {
+                "tags": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "string"
+                    }
+                  ]
+                },
+                "operationId": {
+                  "type": "string"
+                },
+                "responses": {
+                  "type": "object",
+                  "properties": {
+                    "200": {
+                      "type": "object",
+                      "properties": {
+                        "description": {
+                          "type": "string"
+                        },
+                        "content": {
+                          "type": "object",
+                          "properties": {
+                            "*/*": {
+                              "type": "object",
+                              "properties": {
+                                "schema": {
+                                  "type": "object",
+                                  "properties": {
+                                    "$ref": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "$ref"
+                                  ]
+                                }
+                              },
+                              "required": [
+                                "schema"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "*/*"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "description",
+                        "content"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "200"
+                  ]
+                }
+              },
+              "required": [
+                "tags",
+                "operationId",
+                "responses"
+              ]
+            }
+          },
+          "required": [
+            "get"
+          ]
+        }
+      },
+      "required": [
+        "/{id}/read",
+        "/",
+        "/{id}",
+        "/count"
+      ]
     },
-    "description": {
-      "type": "string"
+    "components": {
+      "type": "object",
+      "properties": {
+        "schemas": {
+          "type": "object",
+          "properties": {
+            "Message": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "properties": {
+                  "type": "object",
+                  "properties": {
+                    "messageid": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string"
+                        },
+                        "format": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "format"
+                      ]
+                    },
+                    "name": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "type"
+                      ]
+                    },
+                    "email": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "type"
+                      ]
+                    },
+                    "phone": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string"
+                        },
+                        "maxLength": {
+                          "type": "integer"
+                        },
+                        "minLength": {
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "maxLength",
+                        "minLength"
+                      ]
+                    },
+                    "subject": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string"
+                        },
+                        "maxLength": {
+                          "type": "integer"
+                        },
+                        "minLength": {
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "maxLength",
+                        "minLength"
+                      ]
+                    },
+                    "description": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string"
+                        },
+                        "maxLength": {
+                          "type": "integer"
+                        },
+                        "minLength": {
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "maxLength",
+                        "minLength"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "messageid",
+                    "name",
+                    "email",
+                    "phone",
+                    "subject",
+                    "description"
+                  ]
+                },
+                "required": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "type",
+                "properties",
+                "required"
+              ]
+            },
+            "Count": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "properties": {
+                  "type": "object",
+                  "properties": {
+                    "count": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string"
+                        },
+                        "format": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "format"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "count"
+                  ]
+                }
+              },
+              "required": [
+                "type",
+                "properties"
+              ]
+            },
+            "MessageSummary": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "properties": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string"
+                        },
+                        "format": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "format"
+                      ]
+                    },
+                    "name": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "type"
+                      ]
+                    },
+                    "subject": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "type"
+                      ]
+                    },
+                    "read": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "type"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name",
+                    "subject",
+                    "read"
+                  ]
+                }
+              },
+              "required": [
+                "type",
+                "properties"
+              ]
+            },
+            "Messages": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "properties": {
+                  "type": "object",
+                  "properties": {
+                    "messages": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string"
+                        },
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "$ref": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "$ref"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "items"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "messages"
+                  ]
+                }
+              },
+              "required": [
+                "type",
+                "properties"
+              ]
+            }
+          },
+          "required": [
+            "Message",
+            "Count",
+            "MessageSummary",
+            "Messages"
+          ]
+        }
+      },
+      "required": [
+        "schemas"
+      ]
     }
   },
   "required": [
-    "messageid",
-    "name",
-    "email",
-    "phone",
-    "subject",
-    "description"
+    "openapi",
+    "info",
+    "servers",
+    "paths",
+    "components"
   ]
 }

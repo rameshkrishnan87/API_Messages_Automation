@@ -9,6 +9,7 @@ import io.cucumber.java.en.When;
 import io.restassured.http.Cookie;
 import io.restassured.http.Cookies;
 import io.restassured.path.json.JsonPath;
+import messages.model.Message;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import com.api.utlis.TestContext;
@@ -75,11 +76,11 @@ public class getListOfMessagesStepDef {
         Cookies allDetailedCookies =context.response.detailedCookies();
         Cookie token = allDetailedCookies.get("token");
         System.out.print("%###Token in get message by id"+token);
-        context.session.put("name", createMessageModel.getName());
-        context.session.put("email", createMessageModel.getEmail());
-        context.session.put("phone", createMessageModel.getPhone());
-        context.session.put("subject", createMessageModel.getSubject());
-        context.session.put("description", createMessageModel.getDescription());
+        context.session.put("name", context.response.as(Message.class).getName());
+        context.session.put("email", context.response.as(Message.class).getEmail());
+        context.session.put("phone", context.response.as(Message.class).getPhone());
+        context.session.put("subject", context.response.as(Message.class).getSubject());
+        context.session.put("description", context.response.as(Message.class).getDescription());
     }
 
     @Then("user should see message details by {string}")
